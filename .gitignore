@@ -1,0 +1,64 @@
+.idea/
+vendor/
+.DS_Store
+
+# Wordpress - ignore core, configuration, examples, uploads and logs.
+# https://github.com/github/gitignore/blob/main/WordPress.gitignore
+
+# Core
+#
+# Note: if you want to stage/commit WP core files
+# you can delete this whole section/until Configuration.
+wordpress-core/
+
+# Log files
+*.log
+
+# All plugins
+#
+# Note: If you wish to whitelist plugins,
+# uncomment the next line
+#/wp-content/plugins
+
+# Content: Uploads and themes
+# Add ! for files and dir to commit
+website/app/*
+!website/app/languages
+!website/app/themes/
+!website/app/advanced-cache.php
+!website/app/object-cache.php
+
+#Plugins to ignore
+!website/app/plugins/
+website/app/plugins/advanced-accordion-block
+website/app/plugins/akismet
+website/app/plugins/code-syntax-block
+website/app/plugins/cookie-law-info
+website/app/plugins/dashboard-widgets-suite
+website/app/plugins/hello-dolly
+website/app/plugins/imagemagick-engine
+website/app/plugins/jetpack
+website/app/plugins/performance-lab
+website/app/plugins/w3-total-cache
+website/app/plugins/wordpress-seo
+website/app/plugins/wp-ulike
+website/app/plugins/google-site-kit
+website/app/plugins/svg-support
+website/app/plugins/translatepress-multilingual
+
+# Global gitignore setup
+/composer.lock
+website/.env
+.bundle/
+*.retry
+.vscode/
+.phpunit.result.cache
+tags
+.htpasswd
+
+# Database exports
+exports/*
+!exports/.gitkeep
+
+# Node modules
+node_modules/
