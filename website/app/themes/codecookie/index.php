@@ -13,8 +13,12 @@
  */
 get_header();
 ?>
-
-<h1>Titre du site CodeCookie</h1>
-
+    <h1>Index de codeCookie</h1>
+    <?php if (have_posts()): ?>
+        <?php while(have_posts()): the_post(); ?>
+            <li>
+                <a href="<?php the_permalink(); ?>"><?php the_title() ?></a> - <?php the_author() ?></li>
+        <?php endwhile ?>
+    <?php endif ?>
 <?php
 get_footer();

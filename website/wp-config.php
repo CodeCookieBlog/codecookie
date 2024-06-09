@@ -92,7 +92,15 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+if ($env['WP_ENV'] !== 'production') {
+    define( 'WP_DEBUG', true );
+    define( 'WP_DEBUG_LOG', '/app/logs/wp-errors.log' );
+    define( 'WP_DEBUG_DISPLAY', true );
+    @ini_set( 'display_errors', 1 );
+    define( 'SCRIPT_DEBUG', true );
+} else {
+    define( 'WP_DEBUG', false );
+}
 
 /* Add any custom values between this line and the "stop editing" line. */
 
@@ -107,9 +115,10 @@ define( 'WP_DEFAULT_THEME', 'codecookie' );
 /** Define a custom content directory */
 define ('WP_CONTENT_DIR', __DIR__ . '/app');
 define ('WP_CONTENT_URL', $env['WP_CONTENT_URL'] . 'app');
-define( 'WP_SITEURL',  $env['WP_SITEURL'] . 'wordpress-core/');
+define( 'WP_SITEURL',  $env['WP_SITEURL'] . 'wordpress-core');
 
 /* That's all, stop editing! Happy publishing. */
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
